@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const navItems = ["About", "Skills", "Creations", "Hackathons", "Contact"];
+const navItems = ["About", "Skills", "Hackathons", "Contact"];
 
 const skills = [
   {
@@ -578,47 +578,10 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* ── SECTION 03: OUR CREATIONS / PROJECTS ── */}
-      <section id="projects" className="paper-section projects-section">
-        <div className="editorial-container">
-          <SectionLabel>04 / SELECTED CREATIONS</SectionLabel>
-
-          <div className="section-title-row dark-text">
-            <div>
-              <span className="kicker-pill">VIEW OUR LATEST CREATIONS</span>
-              <h2>IDEAS, SHAPED<br />INTO REALITY.</h2>
-            </div>
-            <p>
-              A curated selection of software combining algorithmic rigor, refined user experience, and tangible real-world utility.
-            </p>
-          </div>
-
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <div className={`project-visual ${project.visual}`} aria-hidden="true">
-                  <div className="project-visual-header">
-                    <span className="project-no">{project.no}</span>
-                    <span className="project-badge">{project.highlight}</span>
-                  </div>
-                  <div className="visual-art" />
-                </div>
-                <div className="project-copy">
-                  <small>{project.kicker}</small>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <span className="project-tech">{project.tech}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── SECTION 04: HACKATHONS ── */}
       <section id="hackathons" className="hackathon-section">
         <div className="editorial-container">
-          <SectionLabel light>05 / HACKATHON BATTLEFIELD</SectionLabel>
+          <SectionLabel light>04 / HACKATHON BATTLEFIELD</SectionLabel>
 
           <div className="section-title-row">
             <h2>BUILT UNDER<br />PRESSURE.</h2>
@@ -671,7 +634,7 @@ function Portfolio() {
       {/* ── SECTION 05: HOW I THINK ── */}
       <section className="paper-section philosophy-section">
         <div className="editorial-container">
-          <SectionLabel>06 / ENGINEERING CREDO</SectionLabel>
+          <SectionLabel>05 / ENGINEERING CREDO</SectionLabel>
           <div className="philosophy-grid">
             {[
               ["BUILD", "REAL", "Build software that solves practical human bottlenecks, not throwaway demo projects."],
@@ -696,7 +659,7 @@ function Portfolio() {
       <section id="contact" className="contact-section">
         <div className="editorial-container contact-inner">
           <div className="contact-copy">
-            <SectionLabel light>07 / LET'S CONNECT</SectionLabel>
+            <SectionLabel light>06 / LET'S CONNECT</SectionLabel>
             <h2>
               LET’S BUILD<br />
               <em>SOMETHING</em><br />
