@@ -1,29 +1,38 @@
-# Welcome to your Lovable project
+# Ujjwal Chaudhary — Personal Portfolio
 
-This project was built with [Lovable](https://lovable.dev).
+An editorial, high-performance portfolio engineered with **TanStack Start**, **React 19**, **TypeScript**, and **Tailwind CSS**.
 
-## Build with Lovable
+![Portfolio Preview](./public/ujjwal-photo.jpg)
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## 🚀 Highlights & Features
+- **Editorial Fashion Stencil Layout**: Custom cutty textures, inline SVG displacement filters, and die-cut sticker badges.
+- **Continuous Scroll Architecture**: Fluid narrative transitions across Capabilities, Selected Works, SIH Hackathons, and Direct Contact.
+- **Direct Mail & Instant Messaging**: FormSubmit API delivery straight to Gmail (`ujjwalchaudhary2007@gmail.com`) with instant WhatsApp integration.
+- **100% Mobile & Viewport Optimized**: Zero text clashes, responsive flex/grid wrappers, and touch-optimized navigation.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## 🛠️ Tech Stack
+- **Framework**: TanStack Start (SSR / Nitro Engine)
+- **UI & Styling**: React 19, Tailwind CSS v4, Lucide Icons, Syne & Plus Jakarta Sans typography
+- **Build Tool**: Vite 8
 
-## Development
+## 💻 Local Development
+```bash
+# Clone the repository
+git clone https://github.com/ujjwalchaudharyyy/portfolio.git
+cd portfolio
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+# Install dependencies
+npm install
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# Start development server
 npm run dev
 ```
 
-## Built with
+## 🌐 Production Build
+```bash
+npm run build
+npm run preview
+```
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+---
+© 2026 Ujjwal Chaudhary. Built with passion & precision.
