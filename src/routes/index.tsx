@@ -101,16 +101,6 @@ const projects = [
     visual: "road",
     highlight: "National Finalist",
   },
-  {
-    no: "04",
-    title: "Timetable Generator",
-    kicker: "ALGORITHMIC SCHEDULING",
-    description:
-      "An automated NP-hard constraint solver scheduling collision-free institutional calendars across diverse faculty, cohorts, and campus facilities.",
-    tech: "C++ · Python · Graph Optimization · React.js",
-    visual: "grid",
-    highlight: "Campus Deployed",
-  },
 ];
 
 const journey = [
