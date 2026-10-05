@@ -260,7 +260,7 @@ function Portfolio() {
     setFormData({ name, email, message });
 
     try {
-      // Send real email directly to Ujjwal's inbox
+      // Send real email directly to Ujjwal's inbox without activation/captcha loops
       await fetch("https://formsubmit.co/ajax/ujjwalchaudhary2007@gmail.com", {
         method: "POST",
         headers: {
@@ -272,6 +272,7 @@ function Portfolio() {
           email: email,
           message: message,
           _subject: `New Portfolio Message from ${name}`,
+          _captcha: "false",
           _template: "table",
         }),
       });
