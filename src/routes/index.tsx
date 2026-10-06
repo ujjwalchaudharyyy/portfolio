@@ -153,6 +153,16 @@ const achievementsList = [
     image: "/achievement-watch-code-cert.jpg",
     badge: "📜 CERTIFICATE OF ACHIEVEMENT",
   },
+  {
+    id: "09",
+    title: "Live Software Demo & Jury Presentation",
+    category: "EXHIBITION & LIVE DEMONSTRATION",
+    year: "2025–2026",
+    description:
+      "Interactive hackathon booth demonstration showcasing live software prototype to student attendees and evaluation jury.",
+    image: "/achievement-booth-demo.jpg",
+    badge: "💻 LIVE BOOTH DEMO",
+  },
 ];
 
 const projects = [
