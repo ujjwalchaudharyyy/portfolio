@@ -3,8 +3,10 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Atom,
+  Award,
   BrainCircuit,
   Braces,
+  Camera,
   CheckCircle2,
   Code2,
   Github,
@@ -41,7 +43,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const navItems = ["About", "Skills", "Hackathons", "Contact"];
+const navItems = ["About", "Skills", "Hackathons", "Achievements", "Contact"];
 
 const skills = [
   {
@@ -67,6 +69,49 @@ const skills = [
     items: ["Data Structures", "Algorithms", "Rapid Prototyping", "UI/UX Design"],
     icon: Atom,
     level: "95%",
+  },
+];
+
+const achievementsList = [
+  {
+    id: "01",
+    title: "1st Place Trophy — Graphic Era Watch The Code",
+    category: "NATIONAL HACKATHON CHAMPION",
+    year: "2025",
+    description:
+      "Secured 1st rank and podium trophy for building full-stack assistive AI accessibility platform under 36 hours.",
+    image: "/ujjwal-photo.jpg",
+    badge: "🏆 1ST PLACE WINNER",
+  },
+  {
+    id: "02",
+    title: "Smart India Hackathon 2026 Round 2",
+    category: "GOVT. OF INDIA NATIONAL STAGE",
+    year: "2026",
+    description:
+      "Shortlisted for National Finals designing real-time traffic telemetry and e-challan surveillance systems.",
+    image: "/ujjwal-photo.jpg",
+    badge: "🏅 SIH 2026 QUALIFIER",
+  },
+  {
+    id: "03",
+    title: "NASA Space Apps Challenge 2025",
+    category: "GLOBAL SPACE INNOVATION",
+    year: "2025",
+    description:
+      "Architected 3D exoplanet physics & atmospheric simulation engine using Three.js & WebGL (Astroverse).",
+    image: "/ujjwal-photo.jpg",
+    badge: "🌌 NASA SPACE APPS",
+  },
+  {
+    id: "04",
+    title: "3× National Hackathon Victories & Awards",
+    category: "COMPETITIVE SOFTWARE ENGINEERING",
+    year: "2024–2026",
+    description:
+      "Proven track record of high-speed rapid prototyping, technical presentation, and algorithmic problem solving under live pressure.",
+    image: "/ujjwal-photo.jpg",
+    badge: "⚡ 3× PODIUM FINISHER",
   },
 ];
 
@@ -632,10 +677,65 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* ── SECTION 05: HOW I THINK ── */}
+      {/* ── SECTION 05: ACHIEVEMENTS & PHOTO GALLERY ── */}
+      <section id="achievements" className="dark-section achievements-section">
+        <div className="editorial-container">
+          <SectionLabel light>05 / ACHIEVEMENTS & TROPHIES</SectionLabel>
+
+          <div className="section-title-row">
+            <h2>HALL OF<br />VICTORIES.</h2>
+            <p>
+              Trophies, podium finishes, stage presentations, and engineering milestones captured in action.
+            </p>
+          </div>
+
+          {/* Achievements Photo Grid */}
+          <div className="achievements-gallery-grid">
+            {achievementsList.map((item) => (
+              <article key={item.id} className="achievement-photo-card">
+                <div className="achievement-photo-frame">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="achievement-img"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = "/ujjwal-photo.jpg";
+                    }}
+                  />
+                  <div className="achievement-overlay-badge">{item.badge}</div>
+                  <div className="photo-tape-corner" aria-hidden="true" />
+                </div>
+                <div className="achievement-card-body">
+                  <div className="achievement-meta-strip">
+                    <span>{item.category}</span>
+                    <span>{item.year}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Photo Dropzone Hint Card */}
+          <div className="photo-upload-hint-card">
+            <div className="hint-icon-wrap">
+              <Camera size={24} />
+            </div>
+            <div className="hint-text">
+              <h4>READY FOR YOUR HACKATHON & TROPHY PHOTOS</h4>
+              <p>
+                Send or drop your trophy photos anytime into <code>public/</code> — they will automatically feature in this editorial gallery grid with full hover zoom and sticker frame styling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 06: HOW I THINK ── */}
       <section className="paper-section philosophy-section">
         <div className="editorial-container">
-          <SectionLabel>05 / ENGINEERING CREDO</SectionLabel>
+          <SectionLabel>06 / ENGINEERING CREDO</SectionLabel>
           <div className="philosophy-grid">
             {[
               ["BUILD", "REAL", "Build software that solves practical human bottlenecks, not throwaway demo projects."],
@@ -656,11 +756,11 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* ── SECTION 06: CONTACT ── */}
+      {/* ── SECTION 07: CONTACT ── */}
       <section id="contact" className="contact-section">
         <div className="editorial-container contact-inner">
           <div className="contact-copy">
-            <SectionLabel light>06 / LET'S CONNECT</SectionLabel>
+            <SectionLabel light>07 / LET'S CONNECT</SectionLabel>
             <h2>
               LET’S BUILD<br />
               <em>SOMETHING</em><br />
