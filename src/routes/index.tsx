@@ -163,6 +163,26 @@ const achievementsList = [
     image: "/achievement-booth-demo.jpg",
     badge: "💻 LIVE BOOTH DEMO",
   },
+  {
+    id: "10",
+    title: "Build For India 2.0 — SIH Internal Finals",
+    category: "SIH INTERNAL HACKATHON FINALS",
+    year: "SEPT 2026",
+    description:
+      "Certificate of Appreciation for reaching the Final Round of Build For India 2.0 (SIH Internal Hackathon) organized by We Code.",
+    image: "/achievement-sih-internal-finals.png",
+    badge: "🔥 SIH FINALS QUALIFIER",
+  },
+  {
+    id: "11",
+    title: "Webathon 4.0 — Tech Geeks Club",
+    category: "WEB DEVELOPMENT COMPETITION",
+    year: "SEPT 2026",
+    description:
+      "Official Certificate of Participation awarded to Ujjwal Chaudhary at Webathon 4.0 organized by Tech Geeks Club, GEHU.",
+    image: "/achievement-webathon-cert.png",
+    badge: "⚡ WEBATHON 4.0",
+  },
 ];
 
 const projects = [
