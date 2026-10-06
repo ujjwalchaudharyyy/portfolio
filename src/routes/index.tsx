@@ -183,6 +183,16 @@ const achievementsList = [
     image: "/achievement-webathon-cert.png",
     badge: "⚡ WEBATHON 4.0",
   },
+  {
+    id: "12",
+    title: "Innovate 1.0 — Certificate of Appreciation",
+    category: "IEEE & AWS CLOUD CLUB VICTORY",
+    year: "AUGUST 2026",
+    description:
+      "Certificate of Appreciation awarded for securing victory in Innovate 1.0 open innovation ideathon hosted by AWS Cloud Club & IEEE.",
+    image: "/achievement-innovate-cert.png",
+    badge: "🏆 INNOVATE 1.0 VICTORY",
+  },
 ];
 
 const projects = [
