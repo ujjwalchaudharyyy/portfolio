@@ -75,26 +75,56 @@ const skills = [
 const achievementsList = [
   {
     id: "01",
-    title: "Watch The Code — National Level Hackathon",
+    title: "Watch The Code — National Hackathon Winner",
     category: "NATIONAL LEVEL HACKATHON",
     year: "APRIL 2026",
     description:
-      "Team TECH4ALL secured Consolation Award & ₹5,000 Cash Prize at Watch The Code national level hackathon organized by Tech Geeks Club, Graphic Era.",
+      "Team TECH4ALL awarded Consolation Trophy & ₹5,000 Cash Prize at Watch The Code national level hackathon organized by Tech Geeks Club, Graphic Era.",
     image: "/achievement-watch-the-code.jpg",
     badge: "🏆 ₹5,000 AWARD & TROPHY",
   },
   {
     id: "02",
-    title: "Innovate Ideathon — IEEE & AWS Runner Up",
+    title: "Innovate Ideathon 1.0 — 2nd Rank Runner Up",
     category: "IEEE STUDENT BRANCH & AWS",
     year: "2025–2026",
     description:
-      "Awarded 2nd Position Runner-Up trophy and ₹3,000 cash prize at Innovate Ideathon hosted by Graphic Era Hill University.",
+      "Secured 2nd Position Runner-Up trophy and ₹3,000 cash prize at Innovate Ideathon 1.0 hosted by IEEE & AWS Cloud Club at GEHU.",
     image: "/achievement-innovate-ideathon.jpg",
     badge: "🥈 2ND RANK & ₹3,000",
   },
   {
     id: "03",
+    title: "Grand Stage Felicitation — Innovate Ideathon",
+    category: "STAGE & TROPHY CEREMONY",
+    year: "2025–2026",
+    description:
+      "Full stage podium celebration with IEEE dignitaries, faculty evaluators, and winning teams holding cash prizes.",
+    image: "/achievement-innovate-winners.jpg",
+    badge: "🌟 STAGE CELEBRATION",
+  },
+  {
+    id: "04",
+    title: "AWS Cloud Club & IEEE Hackathon Team",
+    category: "ENGINEERING TEAM ARCHITECTURE",
+    year: "2025–2026",
+    description:
+      "Collaborative engineering showcase at Graphic Era Hill University with AWS Cloud Club & IEEE Student Branch.",
+    image: "/achievement-aws-team.jpg",
+    badge: "⚡ AWS CLOUD CLUB TEAM",
+  },
+  {
+    id: "05",
+    title: "Innovate 1.0 Runner-Up Trophy & AWS Cheque",
+    category: "PODIUM RECOGNITION",
+    year: "2025–2026",
+    description:
+      "Close-up highlight of the Innovate 1.0 Runner Up trophy and ₹3,000 cash reward plaque.",
+    image: "/achievement-runnerup-trophy-hand.jpg",
+    badge: "🏅 RUNNER UP TROPHY",
+  },
+  {
+    id: "06",
     title: "NASA International Space Apps Challenge 2025",
     category: "GLOBAL SPACE INNOVATION",
     year: "2025",
@@ -104,7 +134,7 @@ const achievementsList = [
     badge: "🌌 NASA SPACE APPS",
   },
   {
-    id: "04",
+    id: "07",
     title: "SAARTHI '25 — 24 Hours National Hackathon",
     category: "NATIONAL LEVEL HACKATHON",
     year: "NOV 2025",
@@ -114,8 +144,8 @@ const achievementsList = [
     badge: "🤖 ACCESSIBILITY AI",
   },
   {
-    id: "05",
-    title: "Watch The Code — Official Certificates",
+    id: "08",
+    title: "Watch The Code — National Achievement Certificate",
     category: "NATIONAL COMPETITION CERTIFICATE",
     year: "APRIL 2026",
     description:
