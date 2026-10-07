@@ -1728,7 +1728,11 @@ a { color: inherit; text-decoration: none; }
 
   /* Other Sections Tablet Adjustments */
   .editorial-mega-title {
-    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1.05;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .about-editorial-header {
     grid-template-columns: 1fr;
@@ -1740,6 +1744,17 @@ a { color: inherit; text-decoration: none; }
   }
   .about-editorial-right {
     padding-top: 0;
+  }
+  .about-intro-lead {
+    font-size: 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .about-intro-sub {
+    font-size: 0.875rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding-left: 12px;
   }
   .fashion-stats-bar {
     padding: 24px 20px;
@@ -1813,6 +1828,20 @@ a { color: inherit; text-decoration: none; }
   }
   .paper-section, .dark-section, .hackathon-section, .contact-section {
     padding: 60px 16px;
+  }
+  .editorial-mega-title {
+    font-size: clamp(1.9rem, 9vw, 2.8rem);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.08;
+  }
+  .about-intro-lead {
+    font-size: 0.96rem;
+  }
+  .about-intro-sub {
+    font-size: 0.84rem;
+    padding-left: 10px;
   }
   .stats-grid {
     grid-template-columns: 1fr 1fr;
@@ -1896,6 +1925,218 @@ a { color: inherit; text-decoration: none; }
   .contact-form {
     padding: 22px 18px;
     border-radius: 18px;
+  }
+}
+
+/* ── SECTION: REAL WORLD PROJECTS ────────────────── */
+.projects-real-section {
+  background: var(--paper);
+  color: var(--ink);
+}
+.real-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+.rp-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(17, 18, 21, 0.1);
+  border-top: 4px solid var(--rp-accent, #00f5a0);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.rp-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--rp-accent, #00f5a0) 5%, transparent), transparent 60%);
+  pointer-events: none;
+}
+.rp-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+.rp-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+.rp-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--rp-accent, #00f5a0) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--rp-accent, #00f5a0) 30%, transparent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.rp-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.rp-meta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.rp-id {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: rgba(17, 18, 21, 0.15);
+  line-height: 1;
+}
+.rp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.rp-status-live {
+  background: rgba(0, 245, 160, 0.15);
+  color: #00a86b;
+  border: 1px solid rgba(0, 245, 160, 0.4);
+}
+.rp-status-built {
+  background: rgba(17, 18, 21, 0.07);
+  color: rgba(17, 18, 21, 0.6);
+  border: 1px solid rgba(17, 18, 21, 0.15);
+}
+.rp-status-wip {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.rp-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00a86b;
+  animation: rp-pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes rp-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.rp-category {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--rp-accent, #00a86b);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.rp-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.rp-subtitle {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(17, 18, 21, 0.5);
+  letter-spacing: 0.04em;
+}
+.rp-desc {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(17, 18, 21, 0.72);
+  flex: 1;
+}
+.rp-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.rp-tech-tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(17, 18, 21, 0.06);
+  border: 1px solid rgba(17, 18, 21, 0.12);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: rgba(17, 18, 21, 0.65);
+  letter-spacing: 0.04em;
+}
+.rp-live-btn {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  width: fit-content;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.rp-live-btn:hover {
+  background: var(--rp-accent, #00f5a0);
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+.rp-no-link {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1.5px dashed rgba(17, 18, 21, 0.18);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(17, 18, 21, 0.45);
+  width: fit-content;
+}
+
+@media (max-width: 1080px) {
+  .real-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .real-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .rp-card {
+    padding: 22px;
+  }
+  .rp-title {
+    font-size: 1.35rem;
   }
 }
 

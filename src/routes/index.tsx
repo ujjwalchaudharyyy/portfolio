@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const navItems = ["About", "Skills", "Hackathons", "Achievements", "Contact"];
+const navItems = ["About", "Skills", "Hackathons", "Projects", "Achievements", "Contact"];
 
 const skills = [
   {
@@ -246,6 +246,100 @@ const journey = [
   ["02", "National-Level Hackathons", "Competed across 3 prestigious national hackathons, sharpening engineering intuition.", "https://sahyog-platform.onrender.com/"],
   ["03", "3× Hackathon Victories", "Secured top podium finishes and cash rewards including Graphic Era Watch The Code.", ""],
   ["04", "Smart India Hackathon 2026", "Successfully qualified for Round 2 tackling high-impact national infrastructure problem statements.", ""],
+];
+
+const realProjects = [
+  {
+    id: "01",
+    title: "NASA Astroverse",
+    subtitle: "Space Apps Challenge 2025",
+    category: "SPACE SIMULATION",
+    description:
+      "An interactive 3D planetary physics engine built for the NASA International Space Apps Challenge 2025 — featuring real orbit mechanics, exoplanet exploration, and immersive atmospheric data visualization.",
+    tech: ["Three.js", "WebGL", "React", "Interactive UI"],
+    link: "https://astroverse-gamma.vercel.app/",
+    status: "LIVE",
+    accent: "#00f5a0",
+    icon: "🌌",
+  },
+  {
+    id: "02",
+    title: "SIH — Sahyog",
+    subtitle: "Smart India Hackathon 2026",
+    category: "SOCIAL IMPACT PLATFORM",
+    description:
+      "A community-driven platform built for Smart India Hackathon 2026 to bridge the gap between citizens and government services — enabling real-time grievance redressal, scheme discovery, and collaborative problem solving.",
+    tech: ["React.js", "Node.js", "MongoDB", "AI APIs"],
+    link: "https://sahyog-platform.onrender.com/",
+    status: "LIVE",
+    accent: "#f59e0b",
+    icon: "🏛️",
+  },
+  {
+    id: "03",
+    title: "Time Table Generator",
+    subtitle: "Academic Automation Tool",
+    category: "COLLEGE MANAGEMENT",
+    description:
+      "An intelligent timetable generation system that automatically resolves scheduling conflicts for faculty, classrooms, and subjects — saving hours of manual effort every semester.",
+    tech: ["Python", "Algorithms", "React", "REST API"],
+    link: "",
+    status: "BUILT",
+    accent: "#8b5cf6",
+    icon: "📅",
+  },
+  {
+    id: "04",
+    title: "College Bus Management",
+    subtitle: "Smart Campus Transport",
+    category: "CAMPUS TECH",
+    description:
+      "A real-time GPS-based bus tracking and management system for college campuses — students can track bus live location, view schedules, and get notified on delays.",
+    tech: ["React.js", "GPS APIs", "Real-Time Telemetry", "UI/UX"],
+    link: "",
+    status: "BUILT",
+    accent: "#06b6d4",
+    icon: "🚌",
+  },
+  {
+    id: "05",
+    title: "Solar System Simulator",
+    subtitle: "3D Space Visualization",
+    category: "3D VISUALIZATION",
+    description:
+      "A real-time interactive 3D simulation of our solar system with accurate planet orbits, rotation speeds, and scale — built with Three.js and WebGL for an immersive educational experience.",
+    tech: ["Three.js", "WebGL", "JavaScript", "CSS3"],
+    link: "",
+    status: "BUILT",
+    accent: "#f97316",
+    icon: "☀️",
+  },
+  {
+    id: "06",
+    title: "Webathon 4.0 Project",
+    subtitle: "Tech Geeks Club GEHU",
+    category: "WEB COMPETITION",
+    description:
+      "A high-speed web development project built under competitive pressure at Webathon 4.0 by Tech Geeks Club, GEHU — showcasing rapid prototyping, clean UI design, and functional web engineering.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "UI/UX"],
+    link: "",
+    status: "BUILT",
+    accent: "#ec4899",
+    icon: "⚡",
+  },
+  {
+    id: "07",
+    title: "Government Project",
+    subtitle: "SIH Problem Statement",
+    category: "CIVIC TECHNOLOGY",
+    description:
+      "A technology-driven solution targeting a real Government of India problem statement — designed to improve public service delivery, transparency, and citizen engagement through smart digital infrastructure.",
+    tech: ["React.js", "Python", "AI/ML", "REST APIs"],
+    link: "",
+    status: "IN PROGRESS",
+    accent: "#10b981",
+    icon: "🇮🇳",
+  },
 ];
 
 function FlowerIcon({ size = 16 }: { size?: number }) {
@@ -860,7 +954,66 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* ── SECTION 05: ACHIEVEMENTS & PHOTO GALLERY ── */}
+      {/* ── SECTION 05: REAL WORLD PROJECTS ── */}
+      <section id="projects" className="paper-section projects-real-section">
+        <div className="editorial-container">
+          <SectionLabel>05 / REAL WORLD PROJECTS</SectionLabel>
+
+          <div className="section-title-row dark-text">
+            <h2>THINGS I<br />ACTUALLY<br />BUILT.</h2>
+            <p>
+              From hackathon deadlines to campus tools — real projects solving real problems, shipped with purpose.
+            </p>
+          </div>
+
+          <div className="real-projects-grid">
+            {realProjects.map((p) => (
+              <article key={p.id} className="rp-card" style={{ "--rp-accent": p.accent } as React.CSSProperties}>
+                <div className="rp-card-top">
+                  <div className="rp-icon-wrap">
+                    <span className="rp-emoji">{p.icon}</span>
+                  </div>
+                  <div className="rp-meta-right">
+                    <span className="rp-id">{p.id}</span>
+                    <span className={`rp-status rp-status-${p.status === "LIVE" ? "live" : p.status === "IN PROGRESS" ? "wip" : "built"}`}>
+                      {p.status === "LIVE" && <span className="rp-live-dot" />}
+                      {p.status}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="rp-category">{p.category}</div>
+                <h3 className="rp-title">{p.title}</h3>
+                <p className="rp-subtitle">{p.subtitle}</p>
+                <p className="rp-desc">{p.description}</p>
+
+                <div className="rp-tech-row">
+                  {p.tech.map((t) => (
+                    <span key={t} className="rp-tech-tag">{t}</span>
+                  ))}
+                </div>
+
+                {p.link ? (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rp-live-btn"
+                  >
+                    VIEW LIVE PROJECT <ArrowUpRight size={14} />
+                  </a>
+                ) : (
+                  <div className="rp-no-link">
+                    <Code2 size={13} /> SOURCE / DEMO COMING SOON
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 06: ACHIEVEMENTS & PHOTO GALLERY ── */}
       <section id="achievements" className="dark-section achievements-section">
         <div className="editorial-container">
           <SectionLabel light>05 / ACHIEVEMENTS & TROPHIES</SectionLabel>
