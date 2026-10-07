@@ -608,6 +608,7 @@ function Portfolio() {
 
           <div className="about-editorial-header">
             <div className="about-editorial-left">
+              <div className="about-title-accent-bar" />
               <h2 className="editorial-mega-title">
                 BUILDING REAL<br />
                 SOLUTIONS.<br />

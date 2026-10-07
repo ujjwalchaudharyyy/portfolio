@@ -653,38 +653,57 @@ a { color: inherit; text-decoration: none; }
   color: var(--accent);
 }
 
-/* ── SECTION 01: ABOUT ME (HIGH FASHION LOOK) ─────── */
+/* ── SECTION 01: ABOUT ME (MODERN EDITORIAL LOOK) ─────── */
 .about-editorial-header {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 50px;
-  align-items: end;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: start;
   padding-bottom: 50px;
   border-bottom: 1px solid var(--line-dark);
 }
+.about-editorial-left {
+  position: sticky;
+  top: 32px;
+}
 .editorial-mega-title {
-  margin: 0;
+  margin: 0 0 20px;
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  font-size: clamp(2.6rem, 4.8vw, 4.8rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.0;
   letter-spacing: -0.02em;
   color: var(--ink);
   word-break: keep-all;
   overflow-wrap: normal;
 }
+.about-title-accent-bar {
+  width: 56px;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #00d990, #00f5a0);
+  margin-bottom: 22px;
+}
+.about-editorial-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
 .about-intro-lead {
-  margin: 0 0 16px;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  font-weight: 500;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  font-weight: 600;
   color: var(--ink);
 }
 .about-intro-sub {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: rgba(17, 18, 21, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: rgba(17, 18, 21, 0.74);
+  padding-left: 14px;
+  border-left: 2px solid rgba(0, 217, 144, 0.35);
 }
 
 /* Fashion Stats / Discipline Bar (Inspired by Reference) */
@@ -1659,6 +1678,12 @@ a { color: inherit; text-decoration: none; }
     gap: 28px;
     padding-bottom: 36px;
   }
+  .about-editorial-left {
+    position: static;
+  }
+  .about-editorial-right {
+    padding-top: 0;
+  }
   .fashion-stats-bar {
     padding: 24px 20px;
     margin: 36px 0;
@@ -1845,22 +1870,25 @@ a { color: inherit; text-decoration: none; }
 }
 .achievement-photo-frame {
   position: relative;
-  height: 320px;
   width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #090c0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .achievement-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
-  filter: brightness(0.92) contrast(1.05);
+  filter: brightness(0.95) contrast(1.04);
 }
 .achievement-photo-card:hover .achievement-img {
-  transform: scale(1.08);
-  filter: brightness(1) contrast(1.1);
+  transform: scale(1.04);
+  filter: brightness(1) contrast(1.08);
 }
 .achievement-overlay-badge {
   position: absolute;
@@ -1962,6 +1990,191 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 860px) {
   .achievements-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── ABOUT HIGHLIGHTS & LIGHTBOX STYLING ────────────── */
+.about-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+.about-highlight-card {
+  background: var(--ink);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.about-highlight-card:hover {
+  transform: translateY(-4px);
+}
+.highlight-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 245, 160, 0.15);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+}
+.about-highlight-card h4 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.about-highlight-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Clickable Photo Zoom Hint */
+.clickable-photo {
+  cursor: pointer;
+}
+.photo-zoom-hint {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 5;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(10, 13, 16, 0.85);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.achievement-photo-card:hover .photo-zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox Modal */
+.photo-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 7, 9, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.25s ease;
+}
+.photo-lightbox-container {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  background: #0f141a;
+  border: 2px solid var(--accent);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 245, 160, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+.photo-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #00f5a0;
+  color: #070a09;
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 245, 160, 0.6);
+  transition: transform 0.2s ease;
+}
+.photo-lightbox-close:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+.photo-lightbox-image-box {
+  position: relative;
+  max-height: 60vh;
+  width: 100%;
+  background: #06080b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.photo-lightbox-image-box img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+.lightbox-badge-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #00f5a0;
+  color: #070a09;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 16px rgba(0, 245, 160, 0.5);
+}
+.photo-lightbox-details {
+  padding: 24px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lightbox-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.lightbox-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.lightbox-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 860px) {
+  .about-highlights-grid {
     grid-template-columns: 1fr;
   }
 }
