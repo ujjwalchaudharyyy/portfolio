@@ -314,7 +314,7 @@ const realProjects = [
     description:
       "A real-time interactive 3D simulation of our solar system with accurate planet orbits, rotation speeds, and scale — built with Three.js and WebGL. Currently in active development with more features being added.",
     tech: ["Three.js", "WebGL", "JavaScript", "CSS3"],
-    link: "",
+    link: "https://solar-iota-nine.vercel.app",
     status: "IN PROGRESS",
     accent: "#f97316",
     icon: "☀️",
