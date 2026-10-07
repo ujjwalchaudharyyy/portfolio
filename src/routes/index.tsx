@@ -18,12 +18,16 @@ import {
   Maximize2,
   Menu,
   MessageCircle,
+  Pause,
+  Play,
   Send,
   Sparkles,
   Trophy,
+  Volume2,
+  VolumeX,
   X,
 } from "lucide-react";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -457,6 +461,102 @@ function Portfolio() {
     description: string;
   } | null>(null);
 
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const hasTriggeredRef = useRef(false);
+
+  const playIntroAudio = () => {
+    if (!audioRef.current || hasTriggeredRef.current) return;
+    hasTriggeredRef.current = true;
+    try {
+      sessionStorage.setItem("ujjwal_intro_played", "true");
+    } catch {}
+
+    const audio = audioRef.current;
+    audio.currentTime = 0;
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setIsAudioPlaying(true);
+        })
+        .catch((err) => {
+          console.warn("Autoplay waiting for user gesture:", err);
+          const unlock = () => {
+            if (audioRef.current) {
+              audioRef.current.play().then(() => setIsAudioPlaying(true)).catch(() => {});
+            }
+            window.removeEventListener("pointerdown", unlock);
+            window.removeEventListener("click", unlock);
+            window.removeEventListener("touchstart", unlock);
+            window.removeEventListener("scroll", unlock);
+          };
+          window.addEventListener("pointerdown", unlock, { once: true });
+          window.addEventListener("click", unlock, { once: true });
+          window.addEventListener("touchstart", unlock, { once: true });
+          window.addEventListener("scroll", unlock, { once: true });
+        });
+    }
+  };
+
+  const toggleAudio = () => {
+    if (!audioRef.current) return;
+    if (isAudioPlaying) {
+      audioRef.current.pause();
+      setIsAudioPlaying(false);
+    } else {
+      hasTriggeredRef.current = true;
+      try {
+        sessionStorage.setItem("ujjwal_intro_played", "true");
+      } catch {}
+      audioRef.current.play().then(() => setIsAudioPlaying(true)).catch(() => {});
+    }
+  };
+
+  useEffect(() => {
+    let alreadyPlayed = false;
+    try {
+      alreadyPlayed = sessionStorage.getItem("ujjwal_intro_played") === "true";
+    } catch {}
+
+    if (alreadyPlayed) {
+      hasTriggeredRef.current = true;
+      return;
+    }
+
+    if (window.location.hash === "#about") {
+      playIntroAudio();
+      return;
+    }
+
+    const aboutEl = document.getElementById("about");
+    if (!aboutEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTriggeredRef.current) {
+            playIntroAudio();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(aboutEl);
+
+    const onScroll = () => {
+      if (window.scrollY > 80 && !hasTriggeredRef.current) {
+        playIntroAudio();
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setActivePhoto(null);
@@ -556,7 +656,12 @@ function Portfolio() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase() === "creations" ? "projects" : item.toLowerCase()}`}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    if (item === "About") {
+                      playIntroAudio();
+                    }
+                  }}
                 >
                   {item === "About" ? "WHO DIS?" : item.toUpperCase()}
                 </a>
@@ -695,7 +800,7 @@ function Portfolio() {
             <div className="ribbon-item ribbon-center">
               <span>BUILDING INTELLIGENT EXPERIENCES FOR THE WORLD</span>
             </div>
-            <a href="#about" className="ribbon-scroll-link">
+            <a href="#about" className="ribbon-scroll-link" onClick={() => playIntroAudio()}>
               SCROLL DOWN <ArrowDownRight size={14} />
             </a>
           </div>
@@ -705,7 +810,23 @@ function Portfolio() {
       {/* ── SECTION 01: ABOUT ME (EDITORIAL HIGH FASHION LOOK) ── */}
       <section id="about" className="paper-section about-section">
         <div className="editorial-container">
-          <SectionLabel>01 / ABOUT ME</SectionLabel>
+          <div className="about-label-row">
+            <SectionLabel>01 / ABOUT ME</SectionLabel>
+            <button
+              type="button"
+              className={`about-voice-badge ${isAudioPlaying ? "voice-playing" : ""}`}
+              onClick={toggleAudio}
+              title={isAudioPlaying ? "Pause voice intro" : "Listen to voice intro"}
+            >
+              {isAudioPlaying ? <Volume2 size={13} /> : <Play size={13} />}
+              <span>{isAudioPlaying ? "INTRO PLAYING" : "VOICE INTRO"}</span>
+              <span className="mini-eq" aria-hidden="true">
+                <span className="bar" />
+                <span className="bar" />
+                <span className="bar" />
+              </span>
+            </button>
+          </div>
 
           <div className="about-editorial-header">
             <div className="about-editorial-left">
@@ -1244,6 +1365,42 @@ function Portfolio() {
           </div>
         </div>
       )}
+
+      {/* Hidden Audio Element */}
+      <audio
+        ref={audioRef}
+        src="/about-intro.mp3"
+        preload="auto"
+        onPlay={() => setIsAudioPlaying(true)}
+        onPause={() => setIsAudioPlaying(false)}
+        onEnded={() => setIsAudioPlaying(false)}
+      />
+
+      {/* Floating Audio Controller Pill */}
+      <aside className={`audio-floating-pill ${isAudioPlaying ? "is-playing" : ""}`}>
+        <button
+          type="button"
+          className="audio-pill-btn"
+          onClick={toggleAudio}
+          aria-label={isAudioPlaying ? "Pause voice intro" : "Play voice intro"}
+        >
+          <div className="audio-icon-wrap">
+            {isAudioPlaying ? <Volume2 size={15} /> : <VolumeX size={15} />}
+          </div>
+          <div className="audio-pill-content">
+            <span className="audio-pill-label">UJJWAL'S VOICE</span>
+            <span className="audio-pill-sub">
+              {isAudioPlaying ? "PLAYING NOW" : "CLICK TO PLAY"}
+            </span>
+          </div>
+          <div className="audio-eq-waves" aria-hidden="true">
+            <span className="wave-bar" />
+            <span className="wave-bar" />
+            <span className="wave-bar" />
+            <span className="wave-bar" />
+          </div>
+        </button>
+      </aside>
     </main>
   );
 }
