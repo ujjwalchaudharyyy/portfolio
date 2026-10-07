@@ -988,8 +988,52 @@ a { color: inherit; text-decoration: none; }
   color: var(--accent);
   transition: transform 0.25s ease;
 }
-.service-row:hover .service-arrow {
+.service-row:hover .service-arrow,
+.service-row-link:hover .service-arrow {
   transform: translate(3px, -3px);
+}
+
+/* Clickable link version of service-row */
+.service-row-link {
+  min-height: 105px;
+  display: grid;
+  grid-template-columns: 70px 1.5fr 1fr 30px;
+  gap: 30px;
+  align-items: center;
+  border-top: 1px solid var(--line-light);
+  padding: 20px 0;
+  transition: padding 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.service-row-link:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+.service-row-link:hover {
+  padding-inline: 16px;
+  background: rgba(0, 245, 160, 0.06);
+}
+.service-row-link > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.service-row-link h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+.service-row-link:hover h3 {
+  color: var(--accent);
+}
+.service-row-link p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ── SECTION 03: OUR CREATIONS / PROJECTS ─────────── */
@@ -1203,17 +1247,30 @@ a { color: inherit; text-decoration: none; }
 .journey {
   margin-top: 60px;
 }
-.journey article {
+.journey article,
+.journey .journey-article {
   display: grid;
   grid-template-columns: 80px 1fr 40px;
   align-items: center;
   padding: 28px 0;
   border-bottom: 1px solid var(--line-light);
   transition: padding-left 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 }
-.journey article:hover {
+.journey article:hover,
+.journey .journey-article:hover {
   padding-left: 16px;
   background: rgba(0, 245, 160, 0.03);
+}
+.journey-article-link {
+  cursor: pointer;
+}
+.journey-article-link:hover h3 {
+  color: var(--accent);
+}
+.journey-article-link h3 {
+  transition: color 0.2s ease;
 }
 .journey article > span {
   color: var(--accent);

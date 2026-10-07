@@ -242,10 +242,10 @@ const projects = [
 ];
 
 const journey = [
-  ["01", "NASA Space Apps Challenge", "Built first high-pressure planetary simulation platform via Astroverse."],
-  ["02", "National-Level Hackathons", "Competed across 3 prestigious national hackathons, sharpening engineering intuition."],
-  ["03", "3× Hackathon Victories", "Secured top podium finishes and cash rewards including Graphic Era Watch The Code."],
-  ["04", "Smart India Hackathon 2026", "Successfully qualified for Round 2 tackling high-impact national infrastructure problem statements."],
+  ["01", "NASA Space Apps Challenge", "Built first high-pressure planetary simulation platform via Astroverse.", "https://astroverse-gamma.vercel.app/"],
+  ["02", "National-Level Hackathons", "Competed across 3 prestigious national hackathons, sharpening engineering intuition.", ""],
+  ["03", "3× Hackathon Victories", "Secured top podium finishes and cash rewards including Graphic Era Watch The Code.", ""],
+  ["04", "Smart India Hackathon 2026", "Successfully qualified for Round 2 tackling high-impact national infrastructure problem statements.", ""],
 ];
 
 function FlowerIcon({ size = 16 }: { size?: number }) {
@@ -757,17 +757,33 @@ function Portfolio() {
           <div className="services-list">
             <SectionLabel light>03 / WHAT I BUILD</SectionLabel>
             {[
-              ["01", "FRONTEND & WEB SYSTEMS", "Modern, lightning-fast web applications built on React, Next.js and Tailwind."],
-              ["02", "UI/UX & INTERACTIVE 3D", "Clean interfaces, Three.js shaders, and kinetic scroll environments shaped for humans."],
-              ["03", "AI & AGENTIC WORKFLOWS", "Integrating intelligent LLM APIs, vision systems, and automated task-solving pipelines."],
-              ["04", "ALGORITHMS & BACKEND LOGIC", "Data structures, high-performance C++ compute, and robust backend APIs."],
-            ].map(([num, title, text]) => (
-              <div className="service-row" key={num}>
-                <span>{num}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <ArrowUpRight className="service-arrow" />
-              </div>
+              ["01", "FRONTEND & WEB SYSTEMS", "Modern, lightning-fast web applications built on React, Next.js and Tailwind.", "https://astroverse-gamma.vercel.app/"],
+              ["02", "UI/UX & INTERACTIVE 3D", "Clean interfaces, Three.js shaders, and kinetic scroll environments shaped for humans.", ""],
+              ["03", "AI & AGENTIC WORKFLOWS", "Integrating intelligent LLM APIs, vision systems, and automated task-solving pipelines.", ""],
+              ["04", "ALGORITHMS & BACKEND LOGIC", "Data structures, high-performance C++ compute, and robust backend APIs.", ""],
+            ].map(([num, title, text, link]) => (
+              link ? (
+                <a
+                  className="service-row service-row-link"
+                  key={num}
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${title} — view live project`}
+                >
+                  <span>{num}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <ArrowUpRight className="service-arrow" />
+                </a>
+              ) : (
+                <div className="service-row" key={num}>
+                  <span>{num}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <ArrowUpRight className="service-arrow" />
+                </div>
+              )
             ))}
           </div>
         </div>
@@ -812,16 +828,34 @@ function Portfolio() {
 
           {/* Hackathon Journey List */}
           <div className="journey">
-            {journey.map(([number, title, text]) => (
-              <article key={number}>
-                <span>{number}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-                <ArrowUpRight className="journey-arrow" />
-              </article>
-            ))}
+            {journey.map(([number, title, text, link]) =>
+              link ? (
+                <a
+                  key={number}
+                  className="journey-article journey-article-link"
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${title} — view live project`}
+                >
+                  <span>{number}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                  <ArrowUpRight className="journey-arrow" />
+                </a>
+              ) : (
+                <article key={number}>
+                  <span>{number}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                  <ArrowUpRight className="journey-arrow" />
+                </article>
+              )
+            )}
           </div>
         </div>
       </section>
