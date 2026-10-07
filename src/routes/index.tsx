@@ -8,11 +8,14 @@ import {
   Braces,
   Camera,
   CheckCircle2,
+  Cloud,
   Code2,
+  Cpu,
   Github,
   Instagram,
   Mail,
   MapPin,
+  Maximize2,
   Menu,
   MessageCircle,
   Send,
@@ -193,6 +196,16 @@ const achievementsList = [
     image: "/achievement-innovate-cert.png",
     badge: "🏆 INNOVATE 1.0 VICTORY",
   },
+  {
+    id: "13",
+    title: "Excellence in Coding Competition — Gold, Silver & Bronze",
+    category: "CODING COMPETITION ACHIEVEMENT",
+    year: "2025–2026",
+    description:
+      "Earned Gold, Silver & Bronze medals across multiple coding competitions and excellence challenges — a testament to consistent performance, deep algorithmic thinking, and competitive coding mastery.",
+    image: "/achievement-coding-medals.jpg",
+    badge: "🥇 CODING EXCELLENCE MEDALS",
+  },
 ];
 
 const projects = [
@@ -334,6 +347,22 @@ function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formSent, setFormSent] = useState(false);
   const [formSending, setFormSending] = useState(false);
+  const [activePhoto, setActivePhoto] = useState<{
+    image: string;
+    title: string;
+    category: string;
+    year: string;
+    badge: string;
+    description: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActivePhoto(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const targets = document.querySelectorAll(
@@ -580,25 +609,63 @@ function Portfolio() {
           <div className="about-editorial-header">
             <div className="about-editorial-left">
               <h2 className="editorial-mega-title">
-                THE GIFTED HANDS<br />
-                THAT SHAPE<br />
-                DIGITAL REALITY.
+                BUILDING REAL<br />
+                SOLUTIONS.<br />
+                DRIVING AI & CLOUD<br />
+                INNOVATION.
               </h2>
             </div>
             <div className="about-editorial-right">
               <p className="about-intro-lead">
-                I combine razor-sharp web engineering, modern aesthetic sensibilities and emerging AI architectures to craft software that doesn't just work — it leaves an impression.
+                Hi, I'm <strong>Ujjwal Chaudhary</strong>, a B.Tech Computer Science Engineering (AI-ML) student at <strong>Graphic Era Hill University</strong>, with a strong interest in Artificial Intelligence, Machine Learning, software development, and emerging technologies.
               </p>
               <p className="about-intro-sub">
-                Through competitive hackathons and rapid prototyping, I’ve mastered the discipline of turning raw ideas into rock-solid, production-grade applications under extreme pressure.
+                I enjoy turning real-world problems into practical, user-focused solutions. I have worked on projects involving <strong>AI accessibility, smart college management systems, AI-powered assistants, and Generative AI</strong>, while actively participating in hackathons and innovation challenges.
+              </p>
+              <p className="about-intro-sub">
+                I am also a member of the <strong>Technical Team of the AWS Group at my college</strong>, where I get the opportunity to explore cloud technologies, collaborate with other students, and contribute to technical activities and projects.
+              </p>
+              <p className="about-intro-sub">
+                I have participated in <strong>Smart India Hackathon (SIH) 2026</strong>, where my team qualified for the <strong>second round</strong>, gaining valuable experience in problem-solving, teamwork, research, and building technology-driven solutions.
+              </p>
+              <p className="about-intro-sub">
+                My journey into competitive tech began with the <strong>NASA Astroverse 2025 Challenge</strong> — that one experience lit the spark. Since then, I have participated in <strong>8+ hackathons</strong>, each one sharpening my instincts, building real confidence, and proving to myself that I can deliver under pressure. Those competitions aren't just events on a résumé — they're where I found my edge.
+              </p>
+              <p className="about-intro-sub">
+                I believe in continuous learning, experimenting with new technologies, and building solutions that create real-world impact. My goal is to become a skilled <strong>AI/ML and Software Developer</strong> and use technology to solve meaningful problems.
               </p>
             </div>
           </div>
 
-          {/* Skill & Expertise Progress Ribbon (Inspired by Reference) */}
+          {/* Specialization & Initiative Highlights Grid */}
+          <div className="about-highlights-grid">
+            <div className="about-highlight-card">
+              <div className="highlight-icon"><Cloud size={22} /></div>
+              <div>
+                <h4>AWS GROUP TECHNICAL TEAM MEMBER</h4>
+                <p>Member of the Technical Team of the AWS Group at college, exploring cloud technologies, collaborating on projects, and contributing to technical activities.</p>
+              </div>
+            </div>
+            <div className="about-highlight-card">
+              <div className="highlight-icon"><Trophy size={22} /></div>
+              <div>
+                <h4>SMART INDIA HACKATHON 2026 — ROUND 2</h4>
+                <p>Qualified for the second round of SIH 2026, gaining valuable experience in high-pressure problem solving, teamwork, research, and building tech-driven solutions.</p>
+              </div>
+            </div>
+            <div className="about-highlight-card">
+              <div className="highlight-icon"><BrainCircuit size={22} /></div>
+              <div>
+                <h4>AI / ML & GENERATIVE AI FOCUS</h4>
+                <p>Building AI accessibility platforms, autonomous assistants, computer vision pipelines, and intelligent agent architectures aimed at real-world impact.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Skill & Expertise Progress Ribbon */}
           <div className="fashion-stats-bar">
             <div className="fashion-bar-header">
-              <span className="bar-tag">ENGINEERING DISCIPLINE & EXPERTISE</span>
+              <span className="bar-tag">ENGINEERING VISION & DISCIPLINE</span>
               <div className="bar-flowers">
                 <FlowerIcon size={18} />
                 <span className="bar-line" />
@@ -611,13 +678,14 @@ function Portfolio() {
             </div>
             <div className="fashion-bar-body">
               <div className="fashion-percent">
-                <strong>95%</strong>
-                <span>FULL-STACK ARCHITECTURE & AI SYNTHESIS</span>
+                <strong>100%</strong>
+                <span>PRACTICAL USER-FOCUSED AI & SOFTWARE CREATION</span>
               </div>
               <div className="fashion-tags-pills">
-                <span>FRONTEND PRECISION</span>
-                <span>RAPID PROTOTYPING</span>
-                <span>PRODUCTION DEPLOYMENTS</span>
+                <span>AI ACCESSIBILITY</span>
+                <span>AWS CLOUD</span>
+                <span>GENERATIVE AI</span>
+                <span>SIH 2026 QUALIFIER</span>
               </div>
             </div>
           </div>
@@ -629,7 +697,7 @@ function Portfolio() {
               ["03", "NATIONAL LEVEL EVENTS"],
               ["03", "PODIUM VICTORIES"],
               ["SIH '26", "ROUND 2 QUALIFIED"],
-              ["2029", "B.TECH CSE GRADUATION"],
+              ["2029", "B.TECH CSE (AI-ML)"],
             ].map(([value, label]) => (
               <div className="stat" key={label}>
                 <strong>{value}</strong>
@@ -641,8 +709,8 @@ function Portfolio() {
           {/* Academic Strip */}
           <div className="education-strip">
             <span>ACADEMICS / 2025—2029</span>
-            <h3>B.Tech — Computer Science & Engineering</h3>
-            <p>Specialization in Artificial Intelligence & Machine Learning</p>
+            <h3>B.Tech — Computer Science & Engineering (AI & ML)</h3>
+            <p>Specialization in Artificial Intelligence, Machine Learning & Cloud Technologies</p>
             <p>Graphic Era Hill University · Bhimtal Campus, Uttarakhand</p>
           </div>
         </div>
@@ -772,7 +840,11 @@ function Portfolio() {
           {/* Achievements Photo Grid */}
           <div className="achievements-gallery-grid">
             {achievementsList.map((item) => (
-              <article key={item.id} className="achievement-photo-card">
+              <article
+                key={item.id}
+                className="achievement-photo-card clickable-photo"
+                onClick={() => setActivePhoto(item)}
+              >
                 <div className="achievement-photo-frame">
                   <img
                     src={item.image}
@@ -783,6 +855,9 @@ function Portfolio() {
                     }}
                   />
                   <div className="achievement-overlay-badge">{item.badge}</div>
+                  <div className="photo-zoom-hint">
+                    <Maximize2 size={14} /> <span>VIEW FULL PHOTO</span>
+                  </div>
                   <div className="photo-tape-corner" aria-hidden="true" />
                 </div>
                 <div className="achievement-card-body">
@@ -935,6 +1010,41 @@ function Portfolio() {
           <small>© 2026 UJJWAL CHAUDHARY. ALL RIGHTS RESERVED.</small>
         </div>
       </footer>
+
+      {/* Full-Screen Photo Lightbox Modal */}
+      {activePhoto && (
+        <div
+          className="photo-lightbox-backdrop"
+          onClick={() => setActivePhoto(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="photo-lightbox-container" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="photo-lightbox-close"
+              onClick={() => setActivePhoto(null)}
+              aria-label="Close photo popup"
+            >
+              <X size={22} />
+            </button>
+
+            <div className="photo-lightbox-image-box">
+              <img src={activePhoto.image} alt={activePhoto.title} />
+              <span className="lightbox-badge-tag">{activePhoto.badge}</span>
+            </div>
+
+            <div className="photo-lightbox-details">
+              <div className="lightbox-meta">
+                <span>{activePhoto.category}</span>
+                <span>{activePhoto.year}</span>
+              </div>
+              <h3 className="lightbox-title">{activePhoto.title}</h3>
+              <p className="lightbox-desc">{activePhoto.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
