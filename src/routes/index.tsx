@@ -286,8 +286,8 @@ const realProjects = [
     description:
       "An intelligent timetable generation system that automatically resolves scheduling conflicts for faculty, classrooms, and subjects — saving hours of manual effort every semester.",
     tech: ["Python", "Algorithms", "React", "REST API"],
-    link: "",
-    status: "BUILT",
+    link: "https://timetable-generator1-eight.vercel.app",
+    status: "LIVE",
     accent: "#8b5cf6",
     icon: "📅",
   },
