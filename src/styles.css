@@ -2060,6 +2060,18 @@ a { color: inherit; text-decoration: none; }
   color: rgba(17, 18, 21, 0.5);
   letter-spacing: 0.04em;
 }
+.rp-tagline {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--rp-accent, #00a86b);
+  padding: 8px 12px;
+  border-left: 2px solid var(--rp-accent, #00a86b);
+  background: color-mix(in srgb, var(--rp-accent, #00f5a0) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+  font-weight: 500;
+}
 .rp-desc {
   margin: 4px 0 0;
   font-size: 0.85rem;

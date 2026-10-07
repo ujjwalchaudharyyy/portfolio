@@ -254,6 +254,7 @@ const realProjects = [
     title: "NASA Astroverse",
     subtitle: "Space Apps Challenge 2025",
     category: "SPACE SIMULATION",
+    tagline: "The project that started it all — competing at NASA level in 2nd year showed me there's no ceiling if you're willing to build.",
     description:
       "An interactive 3D planetary physics engine built for the NASA International Space Apps Challenge 2025 — featuring real orbit mechanics, exoplanet exploration, and immersive atmospheric data visualization.",
     tech: ["Three.js", "WebGL", "React", "Interactive UI"],
@@ -267,6 +268,7 @@ const realProjects = [
     title: "SIH — Sahyog",
     subtitle: "Smart India Hackathon 2026",
     category: "SOCIAL IMPACT PLATFORM",
+    tagline: "Real problems, real users, real pressure — SIH pushed me to build something that actually matters for the country.",
     description:
       "A community-driven platform built for Smart India Hackathon 2026 to bridge the gap between citizens and government services — enabling real-time grievance redressal, scheme discovery, and collaborative problem solving.",
     tech: ["React.js", "Node.js", "MongoDB", "AI APIs"],
@@ -280,6 +282,7 @@ const realProjects = [
     title: "Time Table Generator",
     subtitle: "Academic Automation Tool",
     category: "COLLEGE MANAGEMENT",
+    tagline: "Why spend hours on manual scheduling when an algorithm can do it in seconds? I built the answer for my college.",
     description:
       "An intelligent timetable generation system that automatically resolves scheduling conflicts for faculty, classrooms, and subjects — saving hours of manual effort every semester.",
     tech: ["Python", "Algorithms", "React", "REST API"],
@@ -293,6 +296,7 @@ const realProjects = [
     title: "College Bus Management",
     subtitle: "Smart Campus Transport",
     category: "CAMPUS TECH",
+    tagline: "Every campus student has missed a bus and felt helpless — I wanted to solve that with real-time GPS and live tracking.",
     description:
       "A real-time GPS-based bus tracking and management system for college campuses — students can track bus live location, view schedules, and get notified on delays.",
     tech: ["React.js", "GPS APIs", "Real-Time Telemetry", "UI/UX"],
@@ -306,11 +310,12 @@ const realProjects = [
     title: "Solar System Simulator",
     subtitle: "3D Space Visualization",
     category: "3D VISUALIZATION",
+    tagline: "Still cooking — curiosity about space and Three.js brought this to life, and I'm not stopping until every orbit is perfect.",
     description:
-      "A real-time interactive 3D simulation of our solar system with accurate planet orbits, rotation speeds, and scale — built with Three.js and WebGL for an immersive educational experience.",
+      "A real-time interactive 3D simulation of our solar system with accurate planet orbits, rotation speeds, and scale — built with Three.js and WebGL. Currently in active development with more features being added.",
     tech: ["Three.js", "WebGL", "JavaScript", "CSS3"],
-    link: "https://solar-iota-nine.vercel.app",
-    status: "LIVE",
+    link: "",
+    status: "IN PROGRESS",
     accent: "#f97316",
     icon: "☀️",
   },
@@ -319,6 +324,7 @@ const realProjects = [
     title: "Webathon 4.0 Project",
     subtitle: "Tech Geeks Club GEHU",
     category: "WEB COMPETITION",
+    tagline: "Deadlines, competition, and zero room for excuses — Webathon 4.0 is where I learned that good code ships fast.",
     description:
       "A high-speed web development project built under competitive pressure at Webathon 4.0 by Tech Geeks Club, GEHU — showcasing rapid prototyping, clean UI design, and functional web engineering.",
     tech: ["React.js", "Tailwind CSS", "JavaScript", "UI/UX"],
@@ -332,6 +338,7 @@ const realProjects = [
     title: "Government Project",
     subtitle: "SIH Problem Statement",
     category: "CIVIC TECHNOLOGY",
+    tagline: "Building for a billion people is humbling — this project taught me that technology in public service is the most meaningful work I can do.",
     description:
       "A technology-driven solution targeting a real Government of India problem statement — designed to improve public service delivery, transparency, and citizen engagement through smart digital infrastructure.",
     tech: ["React.js", "Python", "AI/ML", "REST APIs"],
@@ -985,6 +992,9 @@ function Portfolio() {
                 <div className="rp-category">{p.category}</div>
                 <h3 className="rp-title">{p.title}</h3>
                 <p className="rp-subtitle">{p.subtitle}</p>
+                {p.tagline && (
+                  <p className="rp-tagline">"{p.tagline}"</p>
+                )}
                 <p className="rp-desc">{p.description}</p>
 
                 <div className="rp-tech-row">
@@ -1004,7 +1014,8 @@ function Portfolio() {
                   </a>
                 ) : (
                   <div className="rp-no-link">
-                    <Code2 size={13} /> SOURCE / DEMO COMING SOON
+                    <Code2 size={13} />
+                    {p.status === "IN PROGRESS" ? "🔧 WORK IN PROGRESS — NOT DONE YET" : "SOURCE / DEMO COMING SOON"}
                   </div>
                 )}
               </article>
