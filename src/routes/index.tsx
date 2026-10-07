@@ -309,8 +309,8 @@ const realProjects = [
     description:
       "A real-time interactive 3D simulation of our solar system with accurate planet orbits, rotation speeds, and scale — built with Three.js and WebGL for an immersive educational experience.",
     tech: ["Three.js", "WebGL", "JavaScript", "CSS3"],
-    link: "",
-    status: "BUILT",
+    link: "https://solar-iota-nine.vercel.app",
+    status: "LIVE",
     accent: "#f97316",
     icon: "☀️",
   },
@@ -322,8 +322,8 @@ const realProjects = [
     description:
       "A high-speed web development project built under competitive pressure at Webathon 4.0 by Tech Geeks Club, GEHU — showcasing rapid prototyping, clean UI design, and functional web engineering.",
     tech: ["React.js", "Tailwind CSS", "JavaScript", "UI/UX"],
-    link: "",
-    status: "BUILT",
+    link: "https://nirwana-193.vercel.app",
+    status: "LIVE",
     accent: "#ec4899",
     icon: "⚡",
   },
@@ -335,8 +335,8 @@ const realProjects = [
     description:
       "A technology-driven solution targeting a real Government of India problem statement — designed to improve public service delivery, transparency, and citizen engagement through smart digital infrastructure.",
     tech: ["React.js", "Python", "AI/ML", "REST APIs"],
-    link: "",
-    status: "IN PROGRESS",
+    link: "https://sarthiinfo.vercel.app",
+    status: "LIVE",
     accent: "#10b981",
     icon: "🇮🇳",
   },
