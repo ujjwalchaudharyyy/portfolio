@@ -243,7 +243,7 @@ const projects = [
 
 const journey = [
   ["01", "NASA Space Apps Challenge", "Built first high-pressure planetary simulation platform via Astroverse.", "https://astroverse-gamma.vercel.app/"],
-  ["02", "National-Level Hackathons", "Competed across 3 prestigious national hackathons, sharpening engineering intuition.", ""],
+  ["02", "National-Level Hackathons", "Competed across 3 prestigious national hackathons, sharpening engineering intuition.", "https://sahyog-platform.onrender.com/"],
   ["03", "3× Hackathon Victories", "Secured top podium finishes and cash rewards including Graphic Era Watch The Code.", ""],
   ["04", "Smart India Hackathon 2026", "Successfully qualified for Round 2 tackling high-impact national infrastructure problem statements.", ""],
 ];
@@ -758,7 +758,7 @@ function Portfolio() {
             <SectionLabel light>03 / WHAT I BUILD</SectionLabel>
             {[
               ["01", "FRONTEND & WEB SYSTEMS", "Modern, lightning-fast web applications built on React, Next.js and Tailwind.", "https://astroverse-gamma.vercel.app/"],
-              ["02", "UI/UX & INTERACTIVE 3D", "Clean interfaces, Three.js shaders, and kinetic scroll environments shaped for humans.", ""],
+              ["02", "UI/UX & INTERACTIVE 3D", "Clean interfaces, Three.js shaders, and kinetic scroll environments shaped for humans.", "https://sahyog-platform.onrender.com/"],
               ["03", "AI & AGENTIC WORKFLOWS", "Integrating intelligent LLM APIs, vision systems, and automated task-solving pipelines.", ""],
               ["04", "ALGORITHMS & BACKEND LOGIC", "Data structures, high-performance C++ compute, and robust backend APIs.", ""],
             ].map(([num, title, text, link]) => (
